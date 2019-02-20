@@ -38,5 +38,5 @@ for entities in GROUPS:
     trainer.train(f'data/models/{file_name}',
                    learning_rate=0.05,
                    mini_batch_size=60,
-                   max_epochs=20,
+                   max_epochs=100,
                    save_model=True)
