@@ -37,6 +37,6 @@ for entities in GROUPS:
     file_name = '-'.join(entities)
     trainer.train(f'data/models/{file_name}',
                    learning_rate=0.05,
-                   mini_batch_size=80,
-                   max_epochs=40,
+                   mini_batch_size=60,
+                   max_epochs=20,
                    save_model=True)
