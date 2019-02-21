@@ -39,5 +39,5 @@ for entities in GROUPS:
                    learning_rate=0.05,
                    mini_batch_size=60,
                    max_epochs=100,
-                   save_model=True,
+                   save_final_model=True,
                    test_mode=True)
