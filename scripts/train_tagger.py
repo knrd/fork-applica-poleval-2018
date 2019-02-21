@@ -24,7 +24,7 @@ embedding_types: List[TokenEmbeddings] = [
 
 embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
 
-for entities in GROUPS:
+for i, entities in enumerate(GROUPS):
     corpus: TaggedCorpus = read_group(entities)
     tag_dictionary = corpus.make_tag_dictionary(tag_type='ner')
     tagger: SequenceTagger = SequenceTagger(hidden_size=512,
@@ -36,7 +36,7 @@ for entities in GROUPS:
     file_name = '-'.join(entities)
     file_path = f'data/models/{file_name}'
 
-    print(f"Training for {file_path}")
+    print(f"Training for {file_path} ({i}/{len(GROUPS)})")
     print("Tag dictionary:", tag_dictionary.idx2item)
 
     trainer.train(file_path,
