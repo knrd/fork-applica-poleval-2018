@@ -25,7 +25,7 @@ evaluate:
 packages:
 	pip install -r requirements.txt
 
-prepare: packages nkjp preprocess
+prepare: nkjp preprocess
 
 models:
 	mkdir -p data/models
