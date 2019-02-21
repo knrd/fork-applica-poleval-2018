@@ -15,12 +15,14 @@ for all the tokens present in PolEval task's corpora (symmetric, cased, 300 dime
 """
 
 from flair.file_utils import cached_path
+from pathlib import Path
+
 
 ROOT_URL = 'https://s3.eu-central-1.amazonaws.com/borchmann'
 FORWARD_FILE = 'cse/lm-polish-forward-v0.2.pt'
 BACKWARD_FILE = 'cse/lm-polish-backward-v0.2.pt'
 GLOVE_FILE = 'glove/poleval.txt'
 
-FORWARD_LM = cached_path(f'{ROOT_URL}/{FORWARD_FILE}', cache_dir='models')
-BACKWARD_LM = cached_path(f'{ROOT_URL}/{BACKWARD_FILE}', cache_dir='models')
-GLOVE = cached_path(f'{ROOT_URL}/{GLOVE_FILE}', cache_dir='models')
+FORWARD_LM = cached_path(f'{ROOT_URL}/{FORWARD_FILE}', cache_dir=Path('models'))
+BACKWARD_LM = cached_path(f'{ROOT_URL}/{BACKWARD_FILE}', cache_dir=Path('models'))
+GLOVE = cached_path(f'{ROOT_URL}/{GLOVE_FILE}', cache_dir=Path('models'))
