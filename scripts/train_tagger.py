@@ -34,9 +34,14 @@ for entities in GROUPS:
                                             use_crf=True)
     trainer: ModelTrainer = ModelTrainer(tagger, corpus)
     file_name = '-'.join(entities)
-    trainer.train(f'data/models/{file_name}',
-                   learning_rate=0.05,
-                   mini_batch_size=60,
-                   max_epochs=100,
-                   save_final_model=True,
-                   test_mode=True)
+    file_path = f'data/models/{file_name}'
+
+    print(f"Training for {file_path}")
+    print("Tag dictionary:", tag_dictionary.idx2item)
+
+    trainer.train(file_path,
+                  learning_rate=0.05,
+                  mini_batch_size=124,
+                  max_epochs=40,
+                  save_final_model=True,
+                  test_mode=True)
