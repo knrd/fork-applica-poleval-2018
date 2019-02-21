@@ -24,6 +24,8 @@ embedding_types: List[TokenEmbeddings] = [
 
 embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
 
+print(embedding_types)
+
 for i, entities in enumerate(GROUPS):
     corpus: TaggedCorpus = read_group(entities)
     tag_dictionary = corpus.make_tag_dictionary(tag_type='ner')
@@ -40,8 +42,8 @@ for i, entities in enumerate(GROUPS):
     print("Tag dictionary:", tag_dictionary.idx2item)
 
     trainer.train(file_path,
-                  learning_rate=0.05,
+                  learning_rate=0.1,
                   mini_batch_size=124,
-                  max_epochs=40,
+                  max_epochs=2,
                   save_final_model=True,
                   test_mode=True)
