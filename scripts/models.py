@@ -24,7 +24,7 @@ FORWARD_FILE = 'cse/lm-polish-forward-v0.2.pt'
 BACKWARD_FILE = 'cse/lm-polish-backward-v0.2.pt'
 GLOVE_FILE = 'glove/poleval.txt'
 
-FORWARD_LM = cached_path(f'{ROOT_URL}/{FORWARD_FILE}', cache_dir=Path('models'))
-BACKWARD_LM = cached_path(f'{ROOT_URL}/{BACKWARD_FILE}', cache_dir=Path('models'))
-GLOVE = cached_path(f'{ROOT_URL}/{GLOVE_FILE}', cache_dir=Path('models'))
-GLOVE_POLEVAL_GENSIM = str(Path(file_utils.CACHE_ROOT) / 'embeddings' / 'poleval.gensim')
+# FORWARD_LM = cached_path(f'{ROOT_URL}/{FORWARD_FILE}', cache_dir=Path('models'))
+# BACKWARD_LM = cached_path(f'{ROOT_URL}/{BACKWARD_FILE}', cache_dir=Path('models'))
+GLOVE = cached_path(f'{ROOT_URL}/{GLOVE_FILE}', cache_dir=Path('poleval_embedings'))
+GLOVE_POLEVAL_GENSIM = str(Path(file_utils.CACHE_ROOT) / 'poleval_embedings' / 'poleval.gensim')
