@@ -1,2 +1,4 @@
 data/
 .idea/
+__pycache__
+scripts/poleval_ner_test.py
