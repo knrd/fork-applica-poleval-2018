@@ -14,8 +14,9 @@ for all the tokens present in PolEval task's corpora (symmetric, cased, 300 dime
 30 iterations, window size of 15).
 """
 
-from flair.file_utils import cached_path
 from pathlib import Path
+from flair.file_utils import cached_path
+from flair import file_utils
 
 
 ROOT_URL = 'https://s3.eu-central-1.amazonaws.com/borchmann'
@@ -26,3 +27,4 @@ GLOVE_FILE = 'glove/poleval.txt'
 FORWARD_LM = cached_path(f'{ROOT_URL}/{FORWARD_FILE}', cache_dir=Path('models'))
 BACKWARD_LM = cached_path(f'{ROOT_URL}/{BACKWARD_FILE}', cache_dir=Path('models'))
 GLOVE = cached_path(f'{ROOT_URL}/{GLOVE_FILE}', cache_dir=Path('models'))
+GLOVE_POLEVAL_GENSIM = str(Path(file_utils.CACHE_ROOT) / 'embeddings' / 'poleval.gensim')

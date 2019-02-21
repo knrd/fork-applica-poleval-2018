@@ -15,6 +15,7 @@ clean:
 
 preprocess:
 	./scripts/preprocess_nkjp.py
+	./scripts/preprocess_glove.py
 
 postprocess:
 	./scripts/json_parse.py parse data/poleval_test_ner_2018.json data/test.tsv data/out.tsv data/out.json

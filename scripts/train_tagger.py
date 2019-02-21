@@ -7,18 +7,17 @@ as well as embeddings from forward and backward LMs with 2048 hidden states.
 """
 
 from typing import List
-from flair.embeddings import StackedEmbeddings, FlairEmbeddings, TokenEmbeddings
+from flair.embeddings import StackedEmbeddings, FlairEmbeddings, TokenEmbeddings, WordEmbeddings
 from flair.models import SequenceTagger
 from flair.trainers import ModelTrainer
 from flair.data import TaggedCorpus
 
-from models import FORWARD_LM, BACKWARD_LM, GLOVE
-from embeddings import KeyedWordEmbeddings
+from models import GLOVE_POLEVAL_GENSIM
 from ne_groups import GROUPS
 from corpora import read_group
 
 embedding_types: List[TokenEmbeddings] = [
-    KeyedWordEmbeddings(GLOVE),
+    WordEmbeddings(GLOVE_POLEVAL_GENSIM),
     FlairEmbeddings('polish-forward'),  # FORWARD_LM
     FlairEmbeddings('polish-backward')  # BACKWARD_LM
 ]
