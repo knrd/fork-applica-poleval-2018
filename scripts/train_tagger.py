@@ -43,7 +43,7 @@ for i, entities in enumerate(GROUPS):
 
     trainer.train(file_path,
                   learning_rate=0.1,
-                  mini_batch_size=124,
+                  mini_batch_size=124 * 2,
                   max_epochs=2,
                   save_final_model=True,
                   test_mode=True,
