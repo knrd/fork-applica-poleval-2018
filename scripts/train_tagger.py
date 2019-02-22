@@ -46,7 +46,7 @@ for i, entities in enumerate(GROUPS):
     file_name = '-'.join(entities)
     file_path = f'data/models/{file_name}'
 
-    print(f"Training for {file_path} ({i}/{len(GROUPS)})")
+    print(f"Training for {file_path} ({(i + 1)}/{len(GROUPS)})")
     print("Tag dictionary:", tag_dictionary.idx2item)
 
     trainer.train(file_path, **train_params)
