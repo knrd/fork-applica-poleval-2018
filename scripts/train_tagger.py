@@ -42,9 +42,9 @@ for i, entities in enumerate(GROUPS):
     print("Tag dictionary:", tag_dictionary.idx2item)
 
     trainer.train(file_path,
-                  learning_rate=0.1,
-                  mini_batch_size=124 * 2,
-                  max_epochs=2,
+                  learning_rate=0.05,
+                  mini_batch_size=192,
+                  max_epochs=1,
                   save_final_model=True,
                   test_mode=True,
                   embeddings_in_memory=False)
