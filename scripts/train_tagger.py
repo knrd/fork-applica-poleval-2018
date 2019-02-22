@@ -23,8 +23,15 @@ embedding_types: List[TokenEmbeddings] = [
 ]
 
 embeddings: StackedEmbeddings = StackedEmbeddings(embeddings=embedding_types)
-
 print(embedding_types)
+
+train_params = dict(learning_rate=0.1,
+                    mini_batch_size=192,
+                    max_epochs=1,
+                    save_final_model=True,
+                    test_mode=True,
+                    embeddings_in_memory=False)
+print("Train params:", train_params)
 
 for i, entities in enumerate(GROUPS):
     corpus: TaggedCorpus = read_group(entities)
@@ -38,16 +45,8 @@ for i, entities in enumerate(GROUPS):
     trainer: ModelTrainer = ModelTrainer(tagger, corpus)
     file_name = '-'.join(entities)
     file_path = f'data/models/{file_name}'
-    train_params = dict(file_path,
-                        learning_rate=0.1,
-                        mini_batch_size=192,
-                        max_epochs=1,
-                        save_final_model=True,
-                        test_mode=True,
-                        embeddings_in_memory=False)
 
     print(f"Training for {file_path} ({i}/{len(GROUPS)})")
-    # print("Tag dictionary:", tag_dictionary.idx2item)
-    print("Train params:", train_params)
+    print("Tag dictionary:", tag_dictionary.idx2item)
 
-    trainer.train(**train_params)
+    trainer.train(file_path, **train_params)
